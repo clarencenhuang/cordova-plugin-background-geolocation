@@ -676,7 +676,8 @@ public class LocationUpdateService extends Service implements LocationListener {
             location.put("Longitude", l.getLongitude());
             location.put("Address", "");
             params.put("Location", location);
-
+            long unixTime = System.currentTimeMillis() / 1000L;
+            params.put("Timestamp", unixTime);
             Log.i(TAG, "location: " + location.toString());
 
             StringEntity se = new StringEntity(params.toString());
